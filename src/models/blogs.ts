@@ -18,8 +18,13 @@ class BlogsServer {
   //   return createTimes;
   // }
   static async allMetadata() {
-    const result = await Database.select().from('blogs_metadata')
-    return result
+    const result = await Database.select().from('blogs_metadata');
+    return result;
+  }
+
+  static async allContent() {
+    const result = await Database.select().from('blogs_content');
+    return result;
   }
 }
 
