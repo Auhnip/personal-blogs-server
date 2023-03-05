@@ -1,4 +1,5 @@
 import knex from 'knex';
+import { BlogsContent } from 'knex/types/tables';
 import Database from './database';
 
 class BlogsServer {
@@ -25,6 +26,18 @@ class BlogsServer {
   static async allContent() {
     const result = await Database.select().from('blogs_content');
     return result;
+  }
+
+  static async getContentById(id: number) {
+    const result = await Database.select()
+      .from('blogs_content')
+      .where('id', id);
+
+    if (result.length !== 1) {
+      return { id, content: '' };
+    }
+
+    return result[0];
   }
 }
 
