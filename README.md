@@ -12,17 +12,14 @@
 import { Knex } from 'knex';
 
 export default {
-  connection: {
-    // 数据库服务器地址
-    host: 'xxx.xxx.xxx.xxx',
-    // 端口号
-    port: 3306,
-    // 用户名
-    user: 'user_name',
-    // 密码
-    password: 'password',
-    // 待连接数据库
-    database: 'database_name',
-  },
-} as Knex.Config;
+  // 数据库服务器地址
+  host: 'xxx.xxx.xxx.xxx',
+  port: 3306,
+  // 用户名
+  user: 'root',
+  // 密码
+  password: 'password',
+  // 待连接数据库
+  database: 'hua_blogs',
+} as Knex.MySqlConnectionConfig;
 ```
