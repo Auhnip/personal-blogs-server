@@ -5,8 +5,8 @@ declare module 'knex/types/tables' {
     id: number;
     title: string;
     description: string;
-    create_date: Date;
-    last_modified_date: Date;
+    create_at: Date;
+    update_at: Date;
   }
 
   interface BlogsContent {

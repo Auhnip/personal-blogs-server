@@ -35,8 +35,14 @@ router.post(`${baseApi}/content/update`, async (context) => {
     id: number;
     content: string;
   };
-  const result = await BlogsServer.updateContent(id, content);
-  context.body = result;
+  const data = await BlogsServer.updateContent(id, content);
+  context.body = data;
+});
+
+router.get(`${baseApi}/id`, async (context) => {
+  const { id } = context.query as { id: string };
+  const data = await BlogsServer.getBlogById(Number(id));
+  context.body = data;
 });
 
 export default router;

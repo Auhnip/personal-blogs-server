@@ -45,7 +45,23 @@ class BlogsServer {
       .where('id', id)
       .then(
         (result) =>
-          result.length !== 1 ? failedObj('result error') : successObj(result[0]),
+          result.length !== 1
+            ? failedObj('result error')
+            : successObj(result[0]),
+        (reason) => failedObj('rejected', reason)
+      );
+  }
+
+  static async getBlogById(id: number) {
+    return await Database.select()
+      .from('blogs_content')
+      .where('blogs_content.id', id)
+      .join('blogs_metadata', 'blogs_content.id', 'blogs_metadata.id')
+      .then(
+        (result) =>
+          result.length !== 1
+            ? failedObj('result error')
+            : successObj(result[0]),
         (reason) => failedObj('rejected', reason)
       );
   }
